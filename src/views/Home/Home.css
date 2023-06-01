@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Abel&display=swap%22");
+@import url("https://fonts.googleapis.com/css2?family=Barrio&display=swap");
+
+.contenedor {
+  background-image: url("../../assets/bg.jpg");
+  height: 100vh;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.titulo {
+  font-family: "Barrio", cursive;
+  color: #0f8fb2;
+  font-size: 12em;
+}
+
+.subtitulo {
+  font-family: "Barrio", cursive;
+  color: #0f8fb2;
+  font-size: 5em;
+}
