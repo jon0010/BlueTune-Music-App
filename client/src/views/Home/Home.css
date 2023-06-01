@@ -13,10 +13,28 @@
   font-family: "Barrio", cursive;
   color: #0f8fb2;
   font-size: 12em;
+  text-shadow: -0.5rem -0.5rem 0 black, 1px -1px 0 black, -1px 1px 0 black,
+    1px 1px 0 black;
 }
 
 .subtitulo {
   font-family: "Barrio", cursive;
   color: #0f8fb2;
   font-size: 5em;
+  text-shadow: -0.3rem -0.3rem 0 black, 1px -1px 0 black, -1px 1px 0 black,
+    1px 1px 0 black;
+}
+
+.textoparrafo {
+  color: #000000;
+  width: 80vw;
+  text-align: start;
+  font-family: "Abel", sans-serif;
+  font-size: 1.4em;
+  line-height: 1.9em;
+  border: solid;
+  border-radius: 0.5em;
+  padding: 1.5em;
+  background-color: rgba(0, 255, 255, 0.475);
+  font-weight: bold;
 }
