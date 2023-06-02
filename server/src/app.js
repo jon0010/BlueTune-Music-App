@@ -1,7 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
-const mainRouter = require("./routes/mainRouter");
-const cors = require("cors");
+const { mainRouter } = require("./routes/mainRouter");
 require("dotenv").config();
 
 require("./db");
@@ -13,8 +12,6 @@ app.name = "";
 //NOS ENCARGAMOS QUE UN MIDDLEWARE DE EXPRESS, PASE TODA LA INFORMACION QUE LLEGA A MODO DE JSON, A OBJETO JAVASCRIPT
 app.use(express.json());
 app.use(morgan("dev"));
-app.use(cors());
-
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Credentials", "true");

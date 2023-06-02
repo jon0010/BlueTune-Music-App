@@ -4,6 +4,6 @@ require("dotenv").config();
 
 connection.sync({ force: true }).then(() => {
   app.listen(3001, () => {
-    console.log(`server listening at port ${PORT_NAME}`);
+    console.log(`server listening at port ${process.env.PORT_NAME}`);
   });
 });

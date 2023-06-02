@@ -10,7 +10,7 @@ const usuarioRouter = Router();
 
 usuarioRouter.get("/", getAllUsuarioHandler);
 usuarioRouter.post("/", createUsuarioHandler);
-usuarioRouter.put("/", handlerAllUsuario);
+usuarioRouter.put("/", createUsuarioHandler);
 
 module.exports = {
   usuarioRouter,
