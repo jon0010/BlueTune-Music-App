@@ -1,7 +1,7 @@
 const { Usuario } = require("../../db");
 const { hash } = require("../hashContraseñas.js");
 
-const createUsuario = async (nombre, apellido, email, contraseña) => {
+const createUsuarioController = async (nombre, apellido, email, contraseña) => {
   const allUsuario = await allUsuario();
 
   if (!nombre || !apellido || !email || !contraseña)
@@ -22,5 +22,5 @@ const createUsuario = async (nombre, apellido, email, contraseña) => {
 };
 
 module.exports = {
-  createUsuario,
+  createUsuarioController,
 };

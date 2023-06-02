@@ -1,5 +1,5 @@
-const { Pistas } = require("../db");
-const { hash } = require("../controllers/hashContraseñas");
+const { Pistas } = require("../../db");
+const { hash } = require("../hashContraseñas");
 
 const createPistasController = async (nombre, autor) => {
   const allPistas = await allPistas();

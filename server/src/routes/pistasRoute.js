@@ -1,11 +1,16 @@
 const { Router } = require("express");
-const { handlerAllPistas } = require("../handlers/pistasHandler");
+const {
+  getAllPistasHandler,
+} = require("../handlers/pistasHandler/getAllPistasHandler");
+const {
+  createPistasHandler,
+} = require("../handlers/pistasHandler/createPistasHandler");
 
 const pistasRouter = Router();
 
-pistasRouter.get("/", handlerAllPistas);
-pistasRouter.post("/", handlerAllPistas);
-pistasRouter.put("/", handlerAllPistas);
+pistasRouter.get("/", getAllPistasHandler);
+pistasRouter.post("/", createPistasHandler);
+pistasRouter.put("/", createPistasHandler);
 
 module.exports = {
   pistasRouter,

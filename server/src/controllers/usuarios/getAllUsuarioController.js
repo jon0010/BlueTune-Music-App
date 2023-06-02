@@ -1,8 +1,8 @@
 const { Usuario } = require("../../db");
 
-const getAllUsuario = async () => {
+const getAllUsuarioController = async () => {
   const response = await Usuario.findAll({});
   return response;
 };
 
-module.exports = { getAllUsuario };
+module.exports = { getAllUsuarioController };

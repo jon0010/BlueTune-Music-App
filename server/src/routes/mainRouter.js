@@ -1,10 +1,10 @@
 const { Router } = require("express");
 const {
-  listaDeReproduccionRoute,
+  listaDeReproduccionRouter,
 } = require("../routes/listaDeReproduccionRoute");
-const { usuarioRoute } = require("./usuarioRoute");
-const { pistasRoute } = require("./pistasRoute");
-const { loginRoute } = require("./loginRoute");
+const { usuarioRouter } = require("./usuarioRoute");
+const { pistasRouter } = require("./pistasRoute");
+const { loginRouter } = require("./loginRoute");
 
 // Importar todos los routers;
 
@@ -12,9 +12,9 @@ const mainRouter = Router();
 
 // Configurar los routers
 
-mainRouter.use("/usuario", usuarioRoute);
-mainRouter.use("/pistas", pistasRoute);
-mainRouter.use("/listadereproduccion", listaDeReproduccionRoute);
-mainRouter.use("/login", loginRoute);
+mainRouter.use("/usuario", usuarioRouter);
+mainRouter.use("/pistas", pistasRouter);
+mainRouter.use("/listadereproduccion", listaDeReproduccionRouter);
+mainRouter.use("/login", loginRouter);
 
 module.exports = mainRouter;

@@ -1,12 +1,17 @@
 const { Router } = require("express");
-const { handlerAllUsuario } = require("../handlers/usuarioHandler");
+const {
+  getAllUsuarioHandler,
+} = require("../handlers/usuarioHandler/getAllUsuarioHandler");
+const {
+  createUsuarioHandler,
+} = require("../handlers/usuarioHandler/createUsuarioHandler");
 
 const usuarioRouter = Router();
 
-usuarioRouter.get("/", handlerAllUsuario);
-usuarioRouter.post("/", handlerAllUsuario);
+usuarioRouter.get("/", getAllUsuarioHandler);
+usuarioRouter.post("/", createUsuarioHandler);
 usuarioRouter.put("/", handlerAllUsuario);
 
 module.exports = {
-  pacientsRoutes,
+  usuarioRouter,
 };

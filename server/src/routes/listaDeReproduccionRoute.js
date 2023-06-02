@@ -1,13 +1,13 @@
 const { Router } = require("express");
 const {
-  ListaDeReproduccionHandler,
-} = require("../handlers/listaDeReproduccionHandler");
+  getListaDeReproduccionHandler,
+} = require("../handlers/getListaDeReproduccionHandler");
 
 const listaDeReproduccionRouter = Router();
 
-listaDeReproduccionRouter.get("/", ListaDeReproduccionHandler);
-listaDeReproduccionRouter.post("/", ListaDeReproduccionHandler);
-listaDeReproduccionRouter.put("/", ListaDeReproduccionHandler);
+listaDeReproduccionRouter.get("/", getListaDeReproduccionHandler);
+listaDeReproduccionRouter.post("/", getListaDeReproduccionHandler);
+listaDeReproduccionRouter.put("/", getListaDeReproduccionHandler);
 
 module.exports = {
   listaDeReproduccionRouter,

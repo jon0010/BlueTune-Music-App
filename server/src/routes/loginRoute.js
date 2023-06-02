@@ -5,4 +5,6 @@ const loginRouter = Router();
 
 loginRouter.post("/", loginHandler);
 
-module.exports = loginRouter;
+module.exports = {
+  loginRouter,
+};
