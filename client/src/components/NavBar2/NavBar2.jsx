@@ -1,48 +1,46 @@
 import React from "react";
+import bluetune from "../../assets/bluetune.png";
+import { NavLink } from "react-router-dom";
+import "./NavBar2.css";
 
 const NavBar2 = () => {
   return (
-    <nav
-      className="barra navbar bg-dark border-bottom border-bottom-dark"
-      data-bs-theme="dark"
-    >
-      <div className="container-fluid">
-        <a className="navbar-brand" href="#">
-          Navbar
-        </a>
+    <nav className="barranav row navbar mx-0 px-0">
+      <div className="col-8">
+        <NavLink className="navbar-brand" to="/">
+          <img src={bluetune} alt="logo" width="100" height="90" />
+        </NavLink>
+        <NavLink to="/login">
+          <button className="botonCV ms-5">
+            <div className="BOTONCV">Escucha tu música favorita 🎶</div>
+          </button>
+        </NavLink>
+      </div>
+      <div className="col-2 d-none d-md-block">
+        <NavLink className="nav-link active" aria-current="page" to="/login">
+          Cerrar Sesion
+        </NavLink>
+      </div>
+      <div className="btn-group col-6 d-sm-block d-md-none">
         <button
-          className="navbar-toggler"
+          className="btn btn-secondary dropdown-toggle bi bi-list"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
+          data-bs-toggle="list"
           aria-expanded="false"
-          aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          Menu
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Home
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Features
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Pricing
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link disabled">Disabled</a>
-            </li>
-          </ul>
-        </div>
+        <ul className="dropdown-menu">
+          <li>
+            <NavLink
+              className="nav-link active"
+              aria-current="page"
+              to="/login"
+            >
+              Cerrar Sesion
+            </NavLink>
+          </li>
+        </ul>
       </div>
     </nav>
   );

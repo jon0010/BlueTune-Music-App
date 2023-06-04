@@ -31,6 +31,8 @@ const Footer = () => {
           flexDirection: "column",
           justifyContent: "space-between",
           height: "100%",
+          width: "100vw",
+          position: "fixed",
         }}
       >
         <CssBaseline />

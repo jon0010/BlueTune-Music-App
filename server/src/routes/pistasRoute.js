@@ -10,7 +10,6 @@ const pistasRouter = Router();
 
 pistasRouter.get("/", getAllPistasHandler);
 pistasRouter.post("/", createPistasHandler);
-pistasRouter.put("/", createPistasHandler);
 
 module.exports = {
   pistasRouter,

@@ -1,3 +1,59 @@
-.barra {
-  background-color: bisque;
+@import url("https://fonts.googleapis.com/css2?family=Abel&display=swap%22");
+
+.barranav {
+  font-family: "Abel", sans-serif;
+  font-size: large;
+  color: #ffffff;
+  background-color: rgb(59, 59, 59);
+}
+
+.botonCV {
+  background-color: #0f8fb2;
+  padding: 17px 30px;
+  border: 3px solid transparent;
+  border-radius: 0.6em;
+  transition: 0.2s;
+}
+
+.botonCV:hover {
+  background-color: transparent;
+  border: 3px solid #a477be;
+  box-shadow: 0px 0px 27px 5px #a477be;
+}
+
+.BOTONCV {
+  color: #ffffff;
+  font-family: "Abel", sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+  overflow: hidden;
+  border-right: 4px solid transparent;
+  white-space: nowrap;
+  margin: 0 auto;
+}
+
+.botonCV:hover .BOTONCV {
+  border-right: 4px solid #a477be;
+  color: rgb(255, 255, 255);
+  animation: letters 1.75s steps(22, end), cursor 0.4s step-end infinite;
+}
+
+@keyframes letters {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes cursor {
+  from {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: #9321d5;
+  }
 }

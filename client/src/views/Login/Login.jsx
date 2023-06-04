@@ -12,6 +12,10 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 function Copyright(props) {
   return (
@@ -34,13 +38,41 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 const Login = () => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+  const navigate = useNavigate();
+  const {
+    register,
+    watch,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+
+  const iniciarSesion = async (data) => {
+    try {
+      const response = await axios.post("http://localhost:3001/login", data);
+      const usuarioEncontrado = response.data;
+      console.log(usuarioEncontrado);
+      if (usuarioEncontrado) {
+        if (data.email === usuarioEncontrado.email) {
+          navigate("/bluetune");
+          return;
+        } else {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Oops...",
+            text: "El usuario no existe!",
+          });
+        }
+      }
+    } catch (error) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Oops...",
+        text: "Ocurrió un error inesperado!",
+      });
+      console.error(error);
+    }
   };
 
   return (
@@ -82,8 +114,8 @@ const Login = () => {
             </Typography>
             <Box
               component="form"
-              noValidate
-              onSubmit={handleSubmit}
+              validate="true"
+              onSubmit={handleSubmit(iniciarSesion)}
               sx={{ mt: 1 }}
             >
               <TextField
@@ -95,18 +127,30 @@ const Login = () => {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                {...register("email", {
+                  required: true,
+                })}
               />
+              {errors.email?.type === "required" && (
+                <p className="text-danger">El campo e-mail es requerido</p>
+              )}
               <TextField
                 margin="normal"
                 required
                 fullWidth
-                name="password"
+                name="contraseña"
                 label="Contraseña"
-                type="password"
-                id="password"
-                autoComplete="current-password"
+                type="contraseña"
+                id="contraseña"
+                autoComplete="current-contraseña"
                 className="textolog"
+                {...register("contraseña", {
+                  required: true,
+                })}
               />
+              {errors.contraseña?.type === "required" && (
+                <p className="text-danger">El campo contraseña es requerido</p>
+              )}
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Recordar mi cuenta"

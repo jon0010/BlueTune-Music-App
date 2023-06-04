@@ -1,20 +1,17 @@
 const { Usuario } = require("../../db");
-const { Op } = require("sequelize");
 const { hash } = require("../hashContraseñas");
 
-const loginController = async ({ nombre, apellido, email, contraseña }) => {
+const loginController = async ({ email, contraseña }) => {
   let user = null;
-  contraseña = hash(contraseña);
+  const hashedPassword = hash(contraseña);
   user = await Usuario.findOne({
     where: {
-      contraseña,
-      [Op.or]: [{ nombre: Usuario }, { email: Usuario }],
+      email: email,
+      contraseña: hashedPassword,
     },
   });
-  if (!user) {
-    throw new Error("No existe el usuario");
-  }
-  return { ...user.dataValues };
+  if (user) return { ...user.dataValues };
+  throw new Error("No existe el usuario");
 };
 
 module.exports = {

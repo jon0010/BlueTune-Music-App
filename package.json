@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "noble": "^1.9.1",
+    "react-web-bluetooth": "^1.0.0"
+  }
+}
