@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import noHayPistas from "../../assets/404.jpg";
-import styles from "./Bluetune.module.css";
+import "./Bluetune.css";
 import MyBluetoothComponent from "../../components/StartBluetooth";
 import TarjetaPista from "../../components/tarjetaPista/TarjetaPista";
 
@@ -14,12 +14,64 @@ const Bluetune = () => {
     { nombre: "La Cumbia del Marcianito", autor: "El Pepo" },
     { nombre: "La Ley y la Trampa", autor: "El Chaqueño Palavecino" },
     { nombre: "Girls Just Want to Have Fun", autor: "Cindy Lauper" },
+    { nombre: "Bohemian Rhapsody", autor: "Queen" },
+    { nombre: "Hotel California", autor: "Eagles" },
+    { nombre: "Imagine", autor: "John Lennon" },
+    { nombre: "Shape of You", autor: "Ed Sheeran" },
+    { nombre: "Despacito", autor: "Luis Fonsi" },
+    { nombre: "Billie Jean", autor: "Michael Jackson" },
+    { nombre: "Wonderwall", autor: "Oasis" },
+    { nombre: "Don't Stop Believin'", autor: "Journey" },
+    { nombre: "Sweet Child o' Mine", autor: "Guns N' Roses" },
+    { nombre: "Hey Jude", autor: "The Beatles" },
+    { nombre: "Livin' on a Prayer", autor: "Bon Jovi" },
+    { nombre: "Smells Like Teen Spirit", autor: "Nirvana" },
+    { nombre: "Rolling in the Deep", autor: "Adele" },
+    { nombre: "Highway to Hell", autor: "AC/DC" },
+    { nombre: "Thriller", autor: "Michael Jackson" },
+    { nombre: "Stairway to Heaven", autor: "Led Zeppelin" },
+    { nombre: "Yesterday", autor: "The Beatles" },
+    { nombre: "Like a Rolling Stone", autor: "Bob Dylan" },
+    { nombre: "Smells Like Teen Spirit", autor: "Nirvana" },
+    { nombre: "Hotel California", autor: "Eagles" },
+    { nombre: "Imagine", autor: "John Lennon" },
+    { nombre: "Sweet Child o' Mine", autor: "Guns N' Roses" },
+    { nombre: "Boogie Wonderland", autor: "Earth, Wind & Fire" },
+    { nombre: "Wonderwall", autor: "Oasis" },
+    { nombre: "Livin' on a Prayer", autor: "Bon Jovi" },
+    { nombre: "Hey Jude", autor: "The Beatles" },
+    { nombre: "Thriller", autor: "Michael Jackson" },
+    { nombre: "Don't Stop Believin'", autor: "Journey" },
+    { nombre: "Nothing Else Matters", autor: "Metallica" },
+    { nombre: "Purple Rain", autor: "Prince" },
+    { nombre: "Sound of Silence", autor: "Simon & Garfunkel" },
+    { nombre: "Hallelujah", autor: "Leonard Cohen" },
+    { nombre: "Angie", autor: "The Rolling Stones" },
+    { nombre: "All You Need Is Love", autor: "The Beatles" },
+    { nombre: "Another Brick in the Wall", autor: "Pink Floyd" },
+    { nombre: "Sweet Home Alabama", autor: "Lynyrd Skynyrd" },
+    { nombre: "November Rain", autor: "Guns N' Roses" },
+    { nombre: "Boogie Wonderland", autor: "Earth, Wind & Fire" },
+    { nombre: "Livin' La Vida Loca", autor: "Ricky Martin" },
+    { nombre: "Smooth", autor: "Santana ft. Rob Thomas" },
+    { nombre: "Like a Prayer", autor: "Madonna" },
+    { nombre: "I Will Always Love You", autor: "Whitney Houston" },
+    { nombre: "Wannabe", autor: "Spice Girls" },
+    { nombre: "Killing Me Softly with His Song", autor: "Roberta Flack" },
+    { nombre: "I Want to Hold Your Hand", autor: "The Beatles" },
+    { nombre: "Sweet Child o' Mine", autor: "Guns N' Roses" },
+    { nombre: "Smooth Criminal", autor: "Michael Jackson" },
+    { nombre: "Black Dog", autor: "Led Zeppelin" },
+    { nombre: "Under the Bridge", autor: "Red Hot Chili Peppers" },
+    { nombre: "Hallelujah", autor: "Jeff Buckley" },
+    { nombre: "Somebody That I Used to Know", autor: "Gotye ft. Kimbra" },
+    { nombre: "Creep", autor: "Radiohead" },
   ];
-  const pistasPerPage = 4;
+  const pistasPerPage = 12;
   const lastIndex = page * pistasPerPage;
   const firstIndex = lastIndex - pistasPerPage;
   const pagePistas = pistasAux.slice(firstIndex, lastIndex);
-  const pagesNumber = Math.ceil(pistasAux.length / 4);
+  const pagesNumber = Math.ceil(pistasAux.length / pistasPerPage);
   const pages = [];
   for (let i = 1; i <= pagesNumber; i++) {
     pages.push([i]);
@@ -49,9 +101,9 @@ const Bluetune = () => {
   };
   //-----------------------------------------------------------------
   return (
-    <div>
-      <div className={styles.filters}>
-        <nav className={styles.lateral}>
+    <div className="containers">
+      <div>
+        <nav className="lateral">
           <label htmlFor="search">
             Buscar Canción:
             <input
@@ -59,19 +111,22 @@ const Bluetune = () => {
               type="search"
               placeholder="buscar cancion..."
               onChange={(e) => handleOnSearch(e)}
-              className={styles.bars}
+              className="bars"
             />
           </label>
+          <div className="mt-3 animated-button">
+            <MyBluetoothComponent />
+          </div>
         </nav>
 
-        <div className={styles.number}>
+        <div className="number">
           {pistasAux.length > 0 && (
-            <div className={styles.paging}>
+            <div className="paging">
               {pages.length > 1 && (
                 <button
                   id="-"
                   onClick={(e) => handlePageChange(null, e.target.id)}
-                  className={styles.font}
+                  className="font"
                 >
                   ANTERIOR
                 </button>
@@ -80,7 +135,7 @@ const Bluetune = () => {
                 <button
                   key={newPage}
                   onClick={() => handlePageChange(newPage)}
-                  className={styles.font}
+                  className="font"
                 >
                   {newPage}
                 </button>
@@ -89,7 +144,7 @@ const Bluetune = () => {
                 <button
                   id="+"
                   onClick={(e) => handlePageChange(null, e.target.id)}
-                  className={styles.font}
+                  className="font"
                 >
                   SIGUIENTE
                 </button>
@@ -99,44 +154,43 @@ const Bluetune = () => {
         </div>
         {pagePistas && (
           <div>
-            <div className={styles.pageNumberTop}>Página: {page}</div>
+            <div className="pageNumberTop">Página: {page}</div>
             <div>
-              <div className="col-4">
-                <TarjetaPista pistas={pistasAux} />
-                <MyBluetoothComponent />
+              <div className="canciones">
+                <TarjetaPista pistas={pagePistas} />
               </div>
             </div>
           </div>
         )}
         {pagePistas.length === 0 && (
-          <div className={styles.all}>
-            <div className={styles.loader}>
-              <div className={styles.bar1}></div>
-              <div className={styles.bar2}></div>
-              <div className={styles.bar3}></div>
-              <div className={styles.bar4}></div>
-              <div className={styles.bar5}></div>
-              <div className={styles.bar6}></div>
-              <div className={styles.bar7}></div>
-              <div className={styles.bar8}></div>
-              <div className={styles.bar9}></div>
-              <div className={styles.bar10}></div>
-              <div className={styles.bar11}></div>
-              <div className={styles.bar12}></div>
+          <div className="all">
+            <div className="loader">
+              <div className="bar1"></div>
+              <div className="bar2"></div>
+              <div className="bar3"></div>
+              <div className="bar4"></div>
+              <div className="bar5"></div>
+              <div className="bar6"></div>
+              <div className="bar7"></div>
+              <div className="bar8"></div>
+              <div className="bar9"></div>
+              <div className="bar1"></div>
+              <div className="bar1"></div>
+              <div className="bar1"></div>
             </div>
           </div>
         )}
         {pagePistas.length > 0 && pagePistas.length === 0 && (
-          <div className={styles.all}>
-            <div className={styles.btnImgContainer}>
+          <div className="all">
+            <div className="btnImgContainer">
               <img
-                className={styles.gameNotFound}
+                className="gameNotFound"
                 src={noHayPistas}
                 alt="songsNotFound"
               />
 
               <button
-                className={styles.btnNotFound}
+                className="btnNotFound"
                 onClick={() => window.location.reload()}
               >
                 {" "}

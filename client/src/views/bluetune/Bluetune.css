@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Abel&display=swap%22");
+
+.containers {
+  font-family: "Abel", sans-serif;
+  background-image: url("https://scontent.feze12-1.fna.fbcdn.net/v/t39.30808-6/351111255_187216913934939_3638618756735611880_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=j3ZhjuYXmy8AX_x82j4&_nc_ht=scontent.feze12-1.fna&oh=00_AfCj5njoEUFzYuhEQcy0LLvm7-hFcZUx1dsvZsTZzyq92g&oe=6480B110");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vh;
+}
+
+.lateral {
+  padding-left: 1em;
+  padding-right: 1em;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 13em;
+  height: 100vh;
+  text-align: center;
+  border-style: solid;
+  border-left: unset;
+  border-top: unset;
+  border-bottom: unset;
+  border-right-color: aliceblue;
+  color: aliceblue;
+}
+
+.canciones {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 6em; /* Espacio entre las tarjetas */
+  margin-left: 20em;
+  margin-top: 4em;
+}
+
+.bars {
+  width: 100%;
+}
+
+.paging {
+  margin-left: 13em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  display: flex;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  min-width: auto;
+  justify-content: space-around;
+  background: #00000094;
+}
+
+.font {
+  font-family: "Abel", sans-serif;
+  cursor: pointer;
+}
+
+.animated-button {
+  position: relative;
+  display: inline-block;
+  padding: 16px 28px;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  background-color: #1f347b;
+  /* border-radius: 40px; */
+  overflow: hidden;
+  border: none;
+  z-index: 1;
+}
+
+.animated-button:before {
+  transition: 1s;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.animated-button:hover:before {
+  width: 20em;
+  height: 20em;
+  opacity: 0.4;
+  transition: all 0.5s ease-out;
+}
+
+.animated-button:hover {
+  background-color: #fff;
+  color: #202960;
+  transition: all 0.5s ease-out;
+}
+
+.animated-button:hover:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: #255ea4;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -2;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.5;
+  }
+
+  100% {
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+  }
+}
