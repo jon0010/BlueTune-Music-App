@@ -33,7 +33,7 @@ Para levantar el proyecto ingresa este comando en tu terminal
 
 
 
-## Vista principal del Portfolio
+## Vista principal del Sitio Web
 
 ![App Screenshot](https://scontent.feze12-1.fna.fbcdn.net/v/t39.30808-6/352154657_994680571532368_8361592377875902282_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=730e14&_nc_ohc=MnT7FuYUR3kAX86mdV_&_nc_ht=scontent.feze12-1.fna&oh=00_AfD2nAR8d4A-gsLNAL5T-XSdc-DcYlPYpUWAaHmqQFpwaA&oe=6481DF08)
 
